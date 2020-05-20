@@ -8,25 +8,37 @@ Libro::Libro(){
 
 }
 
-Libro::Libro(char titulo[100],char autor[100],char stat[100]){
+Libro::Libro(char titulo[100],char autor[100],int stat){
     strcpy(this->titulo,titulo);
     strcpy(this->autor,autor);
-    strcpy(this->stat,stat);
+    this->stat=stat;
 }
 
 void Libro::change(){
-    char l[]="Prestado";
-    strcpy(this->stat,l);
+    int c=1,p=0;
+    if (this->stat==0){
+        this->stat=c;
+    }
+    else{
+        this->stat=p;
+    }
 }
-void Libro::change2(){
-    char o[]="Libre";
-    strcpy(this->stat,o);
+int Libro::gete(){
+    return this->stat;
 }
 void Libro::toString(){
     cout<<"=====INFORMACION DEL LIBRO======\n\n";
     cout<<"Nombre :"<<this->titulo<<endl;
     cout<<"Autor :"<<this->autor<<endl;
-    cout<<"Estatus : "<<this->stat<<endl;
+    cout<<"Estatus : ";
+
+    if (this->stat==1){
+        cout<<"Prestado\n";
+    }
+    else{
+        cout<<"Libre\n";
+    }
+
 }
 
 void Libro::no(){

@@ -95,7 +95,7 @@ Admin regisAdmin(){
 Libro regisLibro(){
     char nom[100];
     char aut[100];
-    char est[]="Libre";
+    int est=0;
     cout<<"====Registro de Libro.====\n\n";
     cout<<"Ingrese el nombre del libro :\n";
     cin>>nom;
@@ -107,12 +107,18 @@ Libro regisLibro(){
 Prestamo salida(Admin a[10],Libro l[10],int nU,int nL){
     char fecha1[100],fecha2[]="Pendiente";
     int u,o;
+    int e;
     u=user(a,nU);
     o=lib(l,nL);
+    e=l[o].gete();
+    while(e!=0){
+        cout<<"Por el momento, no contamos con este libro, prueba con otro :)\n";
+        o=lib(l,nL);
+        e=l[o].gete();
+    }
     cout<<"\nIngrese la fecha de salida :\n";
     cin>>fecha1;
     l[o].change();
-
     return Prestamo(a[u],l[o],fecha1,fecha2);
 }
 
@@ -186,7 +192,7 @@ int main()
                     case 2:
                         h=presta();
                         li=lib(l,nL);
-                        p[h].alterna(l[li]);
+                        p[h].alterna(l,li);
                         break;
                     case 3:
                         p[presta()].toString();

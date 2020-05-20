@@ -6,12 +6,12 @@ class Libro{
     private:
         char titulo[100];
         char autor[100];
-        char stat[100];
+        int stat;
     public:
         Libro();
-        Libro(char[],char[],char[]);
+        Libro(char[],char[],int);
         void change();
-        void change2();
+        int gete();
         void no();
         void toString();
 

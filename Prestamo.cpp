@@ -20,11 +20,12 @@ Prestamo::Prestamo(Admin usuario,Libro obra,char fecha1[100],char fecha2[100]){
     strcpy(this->fecha1,fecha1);
     strcpy(this->fecha2,fecha2);
 }
-void Prestamo::alterna(Libro l){
+void Prestamo::alterna(Libro l[10],int li){
     char fecha2[100];
     cout<<"Ingrese la fecha de entrega :\n";
     cin>>fecha2;
-    l.change2();
+    l[li].change();
+    this->obra=l[li];
     strcpy(this->fecha2,fecha2);
 
 }

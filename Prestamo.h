@@ -14,7 +14,7 @@ class Prestamo
         Prestamo();
         Prestamo(Admin,Libro,char[]);
         Prestamo(Admin,Libro,char[],char[]);
-        void alterna(Libro);
+        void alterna(Libro[],int);
         void toString();
 };
 
